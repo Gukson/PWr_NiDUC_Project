@@ -1,5 +1,5 @@
 
-# Sortownia Pacze - NiDUC projekt PWr
+# Sortownia Paczek - NiDUC projekt PWr
 
 
 
@@ -13,17 +13,17 @@
 **2. Założenia co do struktury kodu**
 
     - Sortowania
-        - Sekcja:
-            - Maszyny:
+        - Sekcja
+            - Maszyny
                 - Oprogramowanie	
                 - wytrzymałosć
                 - prdkość / szybkośc sortowania
     
-    -Paczka
-        -adres
+    - Paczka
+        - adres
             - Imię Nazwisko
             - Adres, kod pocztowy
-        -  flag 
+        - flag 
             - priorytet
             - delikatny towar
 
