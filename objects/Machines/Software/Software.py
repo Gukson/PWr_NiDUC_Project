@@ -4,10 +4,13 @@ from queue import LifoQueue
 
 class FirstLetterSort:
     def __init__(self):
-        self.outputContainerSize = 9
+        self.__outputContainerSize = 9
 
     def sort(self, postal_code):
         return int(postal_code[0]) - 1
+
+    def get_output_size(self):
+        return self.__outputContainerSize
 
 
 class SecondLetterSort:
@@ -27,7 +30,7 @@ class PrimaryLetterSort:
             return 0
 
 
-def __generate_output_array(output_container_size):
+def generate_output_array(output_container_size):
     output_array = []
     for x in range(0, output_container_size):
         output_array.append(LifoQueue())
