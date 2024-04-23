@@ -12,6 +12,8 @@ class Machine:
         self.input_stack = input_stack
 
     def sort(self):
+        if self.input_stack.empty():
+            return
         pack = self.input_stack.get()
         pos = self.software.sort(pack.get_post_code())
         self.output_container[pos].put(pack)
