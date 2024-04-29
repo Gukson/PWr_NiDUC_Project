@@ -5,3 +5,6 @@ class Time:
 
     def update_time_second(self):
         self.current_time += datetime.timedelta(seconds=1)
+
+    def update_time_hours(self, amount):
+        self.current_time += datetime.timedelta(hours=amount)

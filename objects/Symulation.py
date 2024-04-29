@@ -29,3 +29,4 @@ class Symulation:
             s1.update_section()
             time.update_time_second()
             #print(time.current_time.year, time.current_time.month, time.current_time.day, time.current_time.hour, time.current_time.minute, time.current_time.second)
+            #TODO RepairTeam ready but not implemented
