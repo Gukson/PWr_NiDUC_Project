@@ -2,24 +2,15 @@
 from queue import LifoQueue
 
 
-class FirstLetterSort:
+class SortingSoftware:
     def __init__(self):
-        self.__outputContainerSize = 9
+        self.__outputContainerSize = 100
 
     def sort(self, postal_code):
-        return int(postal_code[0]) - 1
+        return int(postal_code[1]) + 10*int(postal_code[0])
 
     def get_output_size(self):
         return self.__outputContainerSize
-
-
-class SecondLetterSort:
-    def __init__(self):
-        self.outputContainerSize = 9
-
-    def sort(self, postal_code):
-        return int(postal_code[1]) - 1
-
 
 class PrimaryLetterSort:
     def __init__(self):

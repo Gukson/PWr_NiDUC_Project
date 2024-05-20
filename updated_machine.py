@@ -20,6 +20,7 @@ class Machine:
             print("Machine %d is deactivated." % self.id)
             return
 
+        #tutaj czas podmienić
         current_time = time.time()
         elapsed_time = current_time - self.start_time
         remaining_time = self.operatingtime - elapsed_time
@@ -47,49 +48,3 @@ class Machine:
 
     def deactivate(self):
         self.active = False
-        
-class Software:
-    def sort(self, post_code):
-        container_number = int(post_code) % 10 
-        return container_number
-           
-def main():
-    
-    class Stack:
-        def __init__(self):
-            self.items = []
-
-        def put(self, item):
-            self.items.append(item)
-
-        def get(self):
-            return self.items.pop()
-
-    class Container:
-        def __init__(self, capacity):
-            self.capacity = capacity
-            self.items = []
-
-        def put(self, item):
-            if len(self.items) < self.capacity:
-                self.items.append(item)
-            else:
-                print("Container is full. Discarding item:", item)
-
-    # maszyny
-    machine1 = Machine(durability=100, operatingtime=60, software=Software(), input_stack=Stack(), output_container=Container(10), id=1)
-    machine2 = Machine(durability=120, operatingtime=45, software=Software(), input_stack=Stack(), output_container=Container(10), id=2)
-
-    for i in range(20):
-        package = Pack(postal_code=str(i)) 
-        machine1.input_stack.put(package)
-
-    for _ in range(70):
-        machine1.sort()
-        
-    for _ in range(70):
-        machine2.sort()
-
-if __name__ == "__main__":
-    main()
-
