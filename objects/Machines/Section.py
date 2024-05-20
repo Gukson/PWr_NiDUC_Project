@@ -1,6 +1,6 @@
 from objects.Machines.Machine import Machine
 from objects.Machines.Software import Software
-from objects.Time.Time import Time
+
 
 
 class Section:
@@ -19,5 +19,4 @@ class Section:
     def update_section(self):
         for machine in self.machines:
             machine.sort()
-
 

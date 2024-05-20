@@ -6,14 +6,17 @@ from objects.Machines.Software import Software
 from objects.Pack.Pack import Pack
 from objects.Pack.generation import Generation
 from objects.Time.Time import Time
+from objects.Repair_team.Repair_team import Repair_team
+from objects.Repair_team.Config import Config
 
 class Symulation:
-    def run(self):
+    def run(self, config:Config):
         file_path = r"./data/Lista-kodów-pocztowych-Excel-2018.xlsx"
         generator = Generation(file_path)
         time = Time()
-
+        repair_team = Repair_team()
         stack = LifoQueue()
+
         # generating data
         for _ in range(508):
             gender = random.choice(['male', 'female'])
@@ -25,9 +28,15 @@ class Symulation:
         Soft = Software.SortingSoftware()
         s1 = Section(50, Soft, stack,time)
 
+        #temponary variable
+        current_month = time.current_time.month
+
         while time.current_time.year != 2:
+            if config.get_monthly_repairs() and current_month != time.current_time.month:
+                repair_team.monthly_repair(s1.machines)
+
             s1.update_section()
             time.update_time_miliseconds(2)
-            #print(time.current_time.year, time.current_time.month, time.current_time.day, time.current_time.hour, time.current_time.minute, time.current_time.second)
-            #TODO RepairTeam ready but not implemented
-            #TODO Set durability
+
+        #TODO RepairTeam ready but not implemented
+        #TODO Set durability

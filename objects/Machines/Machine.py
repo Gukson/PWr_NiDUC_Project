@@ -2,6 +2,7 @@ import datetime
 from objects.Pack.Pack import Pack
 
 
+
 class Machine:
     def __init__(self, durability, software, input_stack, output_container, id, time):
         self.initial_durability = durability
