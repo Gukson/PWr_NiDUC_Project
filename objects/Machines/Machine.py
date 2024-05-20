@@ -1,10 +1,10 @@
 import datetime
 from objects.Pack.Pack import Pack
-
+from objects.Repair_team.Repair_team import Repair_team
 
 
 class Machine:
-    def __init__(self, durability, software, input_stack, output_container, id, time):
+    def __init__(self, durability, software, input_stack, output_container, id, time, repair_team: Repair_team):
         self.initial_durability = durability
         self.durability = durability
         self.operating_time = 0
@@ -17,6 +17,7 @@ class Machine:
         self.active = True
         self.status = "waiting"
         self.pack = Pack
+        self.repair_team = repair_team
 
     def set_input_stack(self, input_stack):
         self.input_stack = input_stack
@@ -46,6 +47,7 @@ class Machine:
         if self.durability <= 0:
             self.deactivate()
             print("Machine %d has reached 0 durability and is deactivated." % self.id)
+            self.repair_team.repair(self)
             return
 
 
